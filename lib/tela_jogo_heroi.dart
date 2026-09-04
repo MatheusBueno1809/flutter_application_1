@@ -16,7 +16,16 @@ class TelaJogoHeroiState extends State<TelaJogoHeroi> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Tela jogo Heroi')));
+    return Scaffold(body: Center(child: Column(children: [
+      Text("escolha seu personagem"),
+      Row(children: [
+        ElevatedButton(onPressed: () => choosehero("Warrior"), child: Text("Warrior")),
+        ElevatedButton(onPressed: () => choosehero("Wizard"), child: Text("Wizard")),
+        ElevatedButton(onPressed: () => choosehero("Archer"), child: Text("Archer")),
+      ],
+      ),
+      Image.network(urlImage)
+    ],)));
   }
 
     void choosehero(String heroTipe) {
