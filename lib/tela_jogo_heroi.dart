@@ -24,9 +24,24 @@ class TelaJogoHeroiState extends State<TelaJogoHeroi> {
         ElevatedButton(onPressed: () => choosehero("Archer"), child: Text("Archer")),
       ],
       ),
-      Image.network(urlImage)
+      Image(
+        height: 500,
+        image: AssetImage(urlImage)),
+         ElevatedButton(
+                child: Text('INICIAR AVENTURA'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          TelaAmbiente(heroi: nomeHeroi, urlImagem: urlImagem, moedas: moedas, vida: vida, poder: poder),
+                    ),
+                  );
+                },
+              ),
     ],)));
   }
+
 
     void choosehero(String heroTipe) {
       setState(() {
@@ -34,19 +49,19 @@ class TelaJogoHeroiState extends State<TelaJogoHeroi> {
         life = 350;
         coins = 30;
         power = 400;
-        urlImage = "https://i.pinimg.com/736x/02/eb/38/02eb38fbe71a52053e65b3f6e014d7f7.jpg";
+        urlImage = "warriorpng.jpg";
       }
         if (heroTipe == "Wizard") {
         life = 200;
         coins = 20;
         power = 600;
-        urlImage = "https://i.pinimg.com/736x/4c/a3/bc/4ca3bcf5d4660100095d75cc2fb1465f.jpg";
+        urlImage = "wizard-image.png";
         }
-         if (heroTipe == " Archer") {
+         if (heroTipe == "Archer") {
         life = 300;
         coins = 50;
         power = 300;
-        urlImage = "https://i.pinimg.com/736x/ce/c7/8e/cec78e0d5663e948a573915a9ef9a437.jpg";
+        urlImage = "archerpng.jpg";
       }});
       
   } 
